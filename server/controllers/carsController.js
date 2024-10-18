@@ -23,17 +23,22 @@ export const getCar = async (req, res) => {
 };
 
 export const createCar = async (req, res) => {
+  console.log('createCar function called');
+  console.log('Request body:', req.body);
   const { model, color, year, price } = req.body;
   try {
     const result = await pool.query(
       'INSERT INTO cars (model, color, year, price) VALUES ($1, $2, $3, $4) RETURNING *',
       [model, color, year, price]
     );
+    console.log('Car created successfully:', result.rows[0]);
     res.status(201).json(result.rows[0]);
   } catch (error) {
+    console.error('Error creating car:', error);
     res.status(500).json({ error: error.message });
   }
 };
+
 
 export const updateCar = async (req, res) => {
   const { id } = req.params;

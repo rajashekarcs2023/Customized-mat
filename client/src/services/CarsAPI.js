@@ -1,6 +1,5 @@
 import axios from 'axios';
 
-// For Vite, we use /api as the base URL. Vite will proxy these requests to your backend server.
 const API_URL = '/api/cars';
 
 export const getAllCars = async () => {
@@ -14,6 +13,8 @@ export const getCar = async (id) => {
 };
 
 export const createCar = async (carData) => {
+  console.log('Sending POST request to:', API_URL);
+  console.log('Request payload:', carData);
   const response = await axios.post(API_URL, carData);
   return response.data;
 };
