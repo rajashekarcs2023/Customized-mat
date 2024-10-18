@@ -1,5 +1,6 @@
 import axios from 'axios';
 
+// For Vite, we use /api as the base URL. Vite will proxy these requests to your backend server.
 const API_URL = '/api/cars';
 
 export const getAllCars = async () => {

@@ -2,6 +2,7 @@ import express from 'express';
 import path from 'path';
 import favicon from 'serve-favicon';
 import dotenv from 'dotenv';
+import cors from 'cors';
 import carsRoutes from './routes/carsRoutes.js';
 
 dotenv.config();
@@ -9,6 +10,9 @@ dotenv.config();
 const PORT = process.env.PORT || 3000;
 
 const app = express();
+
+// Enable CORS for all routes
+app.use(cors());
 
 app.use(express.json());
 
