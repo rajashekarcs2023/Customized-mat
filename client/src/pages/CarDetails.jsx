@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, Link, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { getCar, deleteCar } from '../services/CarsAPI';
 import '../App.css';
 
@@ -45,9 +45,11 @@ const CarDetails = () => {
       <h2>{car.model} ({car.year})</h2>
       <p>Color: {car.color}</p>
       <p>Price: ${car.price}</p>
-      <Link to={`/edit/${car.id}`}>Edit</Link>
-      <button onClick={handleDelete}>Delete</button>
-      <Link to="/customcars">Back to All Cars</Link>
+      <div className="button-group">
+        <button onClick={() => navigate(`/edit/${car.id}`)}>Edit</button>
+        <button onClick={handleDelete}>Delete</button>
+        <button onClick={() => navigate('/customcars')}>Back to All Cars</button>
+      </div>
     </div>
   );
 };
