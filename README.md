@@ -4,7 +4,7 @@ Submitted by: **Rajashekar Vennavelli**
 
 About this web app: **Customized Cars**
 
-Time spent: **X** hours
+Time spent: **12** hours
 
 ## Required Features
 
